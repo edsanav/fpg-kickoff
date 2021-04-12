@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "fpg-kickoff"
+version = "0.1.0"
+description = ""
+authors = ["Eduardo Santamaria <edsanav@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+returns = "^0.16.0"
+aiohttp = "3.7.4.post0"
+requests ="2.15.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+mypy = "0.770"
+flake8 = "^3.8.1"
+isort = "^4.3.21"
+black = "^19.10b0"
+
+
+[tool.black]
+line-length = 100
+target-version = ['py38']
+include = '\.pyi?$'
+exclude = '''
+(
+  /(
+      \.eggs         # exclude a few common directories in the
+    | \.git          # root of the project
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+  )/
+  | foo.py           # also separately exclude a file named foo.py in
+                     # the root of the project
+)
+'''
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

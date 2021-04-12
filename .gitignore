@@ -1,0 +1,15 @@
+.coverage
+.vscode
+*.egg-info
+.idea/
+.DS_Store
+__pycache__/
+*.mypy_cache/
+.python-version
+*.dist-info/
+scylla-data/
+es-data/
+kafka-data/
+postgres-data/
+.pytest_cache/
+/node_modules/
