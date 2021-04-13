@@ -2,21 +2,17 @@ import random
 from returns.maybe import Maybe, Some, Nothing
 
 
-def divide_things(x: int, y: int) -> Maybe[float]:
+def ultra_complex_operation(x: int, y: int) -> Maybe[float]:
     if y == 0:
         return Nothing
     return Some(x / y)
 
 
-def run():
-    num = random.randint(-1, 1)
-    denom = random.randint(-1, 10)
-    divide_things(num, denom).map(print)
-
-
 def main():
     for i in range(100):
-        run()
+        num = random.randint(-1, 1)
+        denom = random.randint(-1, 10)
+        ultra_complex_operation(num, denom).map(print)
 
 
 if __name__ == "__main__":
