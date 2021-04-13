@@ -5,16 +5,13 @@ from requests import Response
 
 
 class MyAwesomeResult:
-    def __init__(self, status_code:int, raw_content:str, json:Optional[Dict] = None):
+    def __init__(self, status_code: int, raw_content: str, json: Optional[Dict] = None):
         self.status_code = status_code
         self.raw_content = raw_content
         self.json = json
 
-    def __repr__(self):
-        return "<MyAwesomeResult({} {} {})"
-
     @classmethod
-    def from_response(cls, response:Response):
+    def from_response(cls, response: Response):
         try:
             json = response.json()
         except ValueError:
@@ -22,11 +19,11 @@ class MyAwesomeResult:
         return MyAwesomeResult(response.status_code, response.text, json)
 
 
-def make_deterministic_call(endpoint:str)->Response:
+def make_deterministic_call(endpoint: str) -> Response:
     return requests.get(endpoint)
 
 
-def make_deterministic_call_2(endpoint:str)->MyAwesomeResult:
+def make_deterministic_call_2(endpoint: str) -> MyAwesomeResult:
     return MyAwesomeResult.from_response(requests.get(endpoint))
 
 
@@ -41,6 +38,7 @@ def run():
 def main():
     for i in range(10):
         run()
+
 
 if __name__ == "__main__":
     main()
